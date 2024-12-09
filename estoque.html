@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Estoque</title>
+        <style>
+            body {
+                font-size: 20px;
+                font-family: sans-serif;
+                margin: 20px;
+                background-color: #f4f4f9;
+            }
+            h2 {
+                color: #333;
+                font-weight: bold;
+            }
+            table {
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            table, th, td {
+                border: 1px solid #ccc;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            fieldset {
+                max-width: 600px;
+                background-color: #fff;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            fieldset table {
+                width: 100%;
+                border: none;
+            }
+            fieldset table td {
+                padding: 8px;
+                border: none;
+            }
+            input[type="text"], input[type="number"], input[type="date"] {
+                width: 100%;
+                padding: 8px;
+                margin: 4px 0;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            input[type="submit"], input[type="reset"] {
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 30%;
+                transition-property: width;
+                transition-duration: 0.5s;
+            }
+            input[type="submit"] {
+                background-color: #4CAF50;
+            }
+
+            input[type="reset"] {
+                background-color: #df0026;
+            }
+            
+            input[type="submit"]:hover{
+                background-color: #45a049;
+                width: 40%;
+            }
+
+            input[type="reset"]:hover{
+                background-color: #B80E22;
+                width: 40%;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Tabela de Estoque de Produtos</h2>
+        <table>
+            <thead>
+                <th>Código de Produto</th>
+                <th>Descrição do Produto</th>
+                <th>Preço (R$)</th>
+                <th>Quantidade</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PROD0001</td>
+                    <td>Camisa Básica Preta</td>
+                    <td>80,00</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>PROD0002</td>
+                    <td>Calça Jeans Masculina</td>
+                    <td>150,00</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>PROD0003</td>
+                    <td>Tênis Esportivo</td>
+                    <td>400,00</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>PROD0004</td>
+                    <td>Mochila Escolar</td>
+                    <td>350,00</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="/cadastrar_estoque" method="post">            
+            <fieldset>
+                <legend>Cadastro de Produtos</legend>
+                
+                <table>
+                    <tr>
+                        <td><label for="codigo_produto">Código do Produto:</label></td>
+                        <td><input type="text" id="codigo_produto" name="codigo_produto" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="descricao_produto">Descrição do Produto:</label></td>
+                        <td><input type="text" id="descricao_produto" name="descricao_produto" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="preco">Preço:</label></td>
+                        <td><input type="number" id="preco" name="preco" step="0.01" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="quantidade">Quantidade:</label></td>
+                        <td><input type="number" id="quantidade" name="quantidade" required></td>
+                    </tr>           
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <input type="reset" value="Limpar">
+                            <input type="submit" value="Cadastrar">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+    <script>
+
+        let fruta = "UVA";
+
+        if (fruta == "banana"){
+            console.log("Minha fruta é uma banana.");
+        } else {
+            console.log("Minha fruta não é uma banana.");
+        }
+
+        if (fruta == "Maçã"){
+            console.log("Minha fruta é uma maçã.")
+        }
+
+        fruta = fruta.toLowerCase();
+        switch(fruta){
+            case 'banana':
+                console.log("Minha fruta é uma banana.");
+                break;
+            case 'uva':
+                console.log("Minha fruta é uma uva.");
+                break;
+            case 'maçã':
+                console.log("Minha fruta é uma maçã.");
+                break;
+            default:
+                console.log("Minha fruta não está dentro das opções válidas.");
+                break;
+
+        }
+
+        /**
+         * Laço e Repetição
+         */ 
+
+         for (let i=0; i<=10; i++){
+            console.log("O valor de i = " + i);
+         }
+
+         let i=10;
+         while(i<=5){
+            console.log("Valor de i dentro do while = "+ i);
+            i++;
+         }
+
+        
+         do {
+            console.log("Do while valor de i = " + i);
+            i++;
+         } while(i<=3)
+
+        
+         /**
+          * Rótulos
+          */
+         
+          rotulo: for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (j == 2) {
+                    continue rotulo; // Pula para a próxima iteração do 'rotulo'
+                }
+                console.log("i = " + i + " j = " + j);
+            }
+        }
+
+    </script>
+</html>
